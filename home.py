@@ -4,7 +4,7 @@ st.header("Welcome to SmartPage – Your AI-Enhanced Web Chat Assistant 🤖💬
 
 st.write("Need quick, accurate answers from trusted sources? SmartPage is here to help! 🌐✨")
 
-st.image(image="images/smartPage.jpg", caption="SmartPage: Your AI-Enhanced Web Chat Assistant")
+st.image(image="assets/smartPage.jpg", caption="SmartPage: Your AI-Enhanced Web Chat Assistant")
 
 st.write("SmartPage combines the latest in AI technology with real-time information retrieval, delivering you precise, up-to-date answers from selected, reputable webpages. Our intelligent chat assistant draws from trusted sources, providing answers to your queries while referencing the web content you can rely on.")
 
