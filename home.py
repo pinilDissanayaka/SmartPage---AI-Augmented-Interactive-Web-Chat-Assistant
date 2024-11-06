@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.set_page_config(page_title="SmartPage", page_icon="🤖")
+
 st.header("Welcome to SmartPage – Your AI-Enhanced Web Chat Assistant 🤖💬")
 
 st.write("Need quick, accurate answers from trusted sources? SmartPage is here to help! 🌐✨")
