@@ -16,12 +16,13 @@ with st.sidebar:
         pinecone_api_key = st.text_input(label="Enter your Pinecone API key :", value=None, type="password")
 
         if groq_api_key and pinecone_api_key:
-            load_secret(groq_api_key=groq_api_key, pinecone_api_key=pinecone_api_key)
+            if st.button("Load API Keys"):
+                load_secret(groq_api_key=groq_api_key, pinecone_api_key=pinecone_api_key)
         else:
             st.error("Please enter both Groq and Pinecone API keys.", icon="🚨")
     else:
         load_secret()
         
-    if "GROQ_API_KEY" in os.environ and "PINECONE_API_KEY" in st.secrets.keys():
+    if "GROQ_API_KEY" in os.environ.keys() and "PINECONE_API_KEY" in os.environ.keys():
         st.success("Groq and Pinecone API keys loaded successfully!", icon="✅")
         
