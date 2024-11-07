@@ -27,7 +27,7 @@ with st.sidebar:
     if "GROQ_API_KEY" in os.environ.keys() and "PINECONE_API_KEY" in os.environ.keys():
         st.success("Groq and Pinecone API keys loaded successfully!", icon="✅")
         
-web_url=st.text_input(label="Enter your webpage URL :", value=None, type="text")
+web_url=st.text_input(label="Enter your webpage URL :", value=None, type="default")
 
 if web_url:
     if st.button("Load Webpage"):
