@@ -20,4 +20,8 @@ with st.sidebar:
         else:
             st.error("Please enter both Groq and Pinecone API keys.", icon="🚨")
     else:
-        pass
+        load_secret()
+        
+    if "GROQ_API_KEY" in os.environ and "PINECONE_API_KEY" in st.secrets.keys():
+        st.success("Groq and Pinecone API keys loaded successfully!", icon="✅")
+        
