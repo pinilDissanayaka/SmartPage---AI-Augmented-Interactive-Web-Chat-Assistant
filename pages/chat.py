@@ -1,6 +1,7 @@
 import os
 import streamlit as st
 from secret import load_secret
+from web_page import load_page
 
 
 st.set_page_config(page_title="SmartPage", page_icon="🤖")
@@ -25,4 +26,12 @@ with st.sidebar:
         
     if "GROQ_API_KEY" in os.environ.keys() and "PINECONE_API_KEY" in os.environ.keys():
         st.success("Groq and Pinecone API keys loaded successfully!", icon="✅")
+        
+web_url=st.text_input(label="Enter your webpage URL :", value=None, type="text")
+
+if web_url:
+    if st.button("Load Webpage"):
+        documents=load_page(web_url)
+        st.write(documents)
+
         
