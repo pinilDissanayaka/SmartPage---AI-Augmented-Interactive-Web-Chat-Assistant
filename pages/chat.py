@@ -78,4 +78,4 @@ if os.path.exists(chroma_path):
         except Exception as e:
             st.warning(f"An unexpected error occurred: {str(e.args)}. Please try again.", icon="⚠️")
 else:
-    st.write("Please load your webpage first.", icon="🚨")
+    st.warning("Please load your webpage first.", icon="🚨")
