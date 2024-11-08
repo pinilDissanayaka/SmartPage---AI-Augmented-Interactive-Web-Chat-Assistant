@@ -5,7 +5,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores.chroma import Chroma
 
 
-chroma_path="/vector_store/"
+chroma_path="vector_store"
 
 def load_vector_store(documents):
     try:
