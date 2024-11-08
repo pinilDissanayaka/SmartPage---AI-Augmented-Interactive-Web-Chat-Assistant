@@ -12,7 +12,7 @@ def load_page(urls):
     
     for document in documents:
         page_content=document.page_content.replace("\n", "")
-        meta_data=document.metadata
+        meta_data=document.metadata.replace("\n", "")
         cleaned_documents.append(Document(page_content=page_content, metadata=meta_data))
     
     return cleaned_documents
