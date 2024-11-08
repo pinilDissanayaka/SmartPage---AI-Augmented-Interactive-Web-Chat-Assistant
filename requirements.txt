@@ -2,5 +2,5 @@ langchain
 langchain_core
 langchain_community
 langchain_huggingface
-pysqlite3
+sqlite3
 bs4
