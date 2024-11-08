@@ -81,7 +81,7 @@ if os.path.exists(chroma_path):
                     with st.chat_message("assistant"):
                         with st.spinner("Thinking..."):
                             response = generate_response(prompt) 
-                            st.write(response)
+                            st.write_stream(stream=response)
                     message = {"role": "assistant", "content": response}
                     st.session_state.messages.append(message)
                 except Exception as e:

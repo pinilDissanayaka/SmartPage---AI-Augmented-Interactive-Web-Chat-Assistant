@@ -3,21 +3,14 @@ import streamlit as st
 from shutil import rmtree
 from langchain_huggingface import HuggingFaceEmbeddings 
 from langchain_community.vectorstores.chroma import Chroma
+from config import get_embeddings
 
 
 chroma_path="vector_store"
 
 def load_vector_store(documents):
     try:
-        model_name = "sentence-transformers/all-mpnet-base-v2"
-        model_kwargs = {'device': 'cpu'}
-        encode_kwargs = {'normalize_embeddings': False}
-        
-        embeddings = HuggingFaceEmbeddings(
-            model_name=model_name,
-            model_kwargs=model_kwargs,
-            encode_kwargs=encode_kwargs
-        )
+        embeddings = get_embeddings()
         
         if os.path.exists(chroma_path):
             rmtree(path=chroma_path)
@@ -35,16 +28,8 @@ def load_vector_store(documents):
         
 
 def get_retrieve_vector_store():
-    try:
-        model_name = "sentence-transformers/all-mpnet-base-v2"
-        model_kwargs = {'device': 'cpu'}
-        encode_kwargs = {'normalize_embeddings': False}
-        
-        embeddings = HuggingFaceEmbeddings(
-            model_name=model_name,
-            model_kwargs=model_kwargs,
-            encode_kwargs=encode_kwargs
-        )
+    try:        
+        embeddings = get_embeddings()
         
         vector_store=Chroma(persist_directory=chroma_path, embedding_function=embeddings)
         
