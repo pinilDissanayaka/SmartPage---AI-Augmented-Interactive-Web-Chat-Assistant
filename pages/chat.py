@@ -30,6 +30,7 @@ with st.sidebar:
 web_url=st.text_input(label="Enter your webpage URL :", value=None, type="default")
 
 if web_url:
+    
     if st.button("Load Webpage"):
         documents=load_page(web_url)
         st.write(documents)
