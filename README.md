@@ -16,8 +16,8 @@ SmartPage is an advanced AI chat assistant designed to provide users with up-to-
 
 1. Clone the repository:
 ```
-git clone https://github.com/username/smartpage.git
-cd smartpage
+git clone https://github.com/pinilDissanayaka/SmartPage---AI-Augmented-Interactive-Web-Chat-Assistant.git
+cd SmartPage---AI-Augmented-Interactive-Web-Chat-Assistant
 ```
 
 2. Install dependencies:
