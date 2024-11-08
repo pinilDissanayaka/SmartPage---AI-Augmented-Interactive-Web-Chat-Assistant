@@ -51,7 +51,8 @@ with st.sidebar:
 if os.path.exists(chroma_path):
     if "scraped_documents" in st.session_state.keys():
         with st.expander(label="Scraped Webpage", expanded=False):
-            st.markdown(body=st.session_state['scraped_documents'], unsafe_allow_html=True)
+            scraped_documents=st.session_state['scraped_documents']
+            st.markdown(body=scraped_documents, unsafe_allow_html=True)
             
         with st.expander(label="Chat-bot", expanded=True):
             # Store LLM generated responses
