@@ -32,6 +32,10 @@ with st.sidebar:
         if os.path.exists(chroma_path):
             if st.button("Delete Vector Store"):
                 delete_vector_store()
+                
+        if st.button("Clear Chat History"):
+            if "messages" not in st.session_state.keys():
+                st.session_state.messages = [{"role": "assistant", "content": "How may I help you? 👋"}]
             
         web_url=st.text_input(label="Enter your webpage URL :", value=None, type="default")
         if web_url:
