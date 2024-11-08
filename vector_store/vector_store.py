@@ -47,6 +47,17 @@ def get_retrieve_vector_store():
         )
         
         vector_store=Chroma(persist_directory=chroma_path, embedding_function=embeddings)
+        
+        return vector_store.as_retriever()
     except Exception as e:
         st.error("Error in loading vector store.", icon="🚨")
+        st.error(e.args)
+        
+def delete_vector_store():
+    try:
+        if os.path.exists(chroma_path):
+            rmtree(path=chroma_path)
+            st.success("Vector store deleted successfully.", icon="✅")
+    except Exception as e:
+        st.error("Error in deleting vector store.", icon="🚨")
         st.error(e.args)

@@ -1,1 +1,1 @@
-from .vector_store import load_vector_store
+from .vector_store import load_vector_store, get_retrieve_vector_store, delete_vector_store, chroma_path

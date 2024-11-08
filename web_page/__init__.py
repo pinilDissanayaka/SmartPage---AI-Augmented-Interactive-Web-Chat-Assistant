@@ -1,1 +1,1 @@
-from .web_page import load_page
+from .web_page import load_page, split_page
