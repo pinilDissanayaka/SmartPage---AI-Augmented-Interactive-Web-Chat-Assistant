@@ -39,6 +39,9 @@ with st.sidebar:
                 with st.spinner("Loading..."):
                     documents=load_page(urls=web_url)
                     
+                    if "scraped_documents" not in st.session_state.keys():
+                        st.session_state.scraped_documents = documents
+                    
                     splitted_documents=split_page(documents=documents)
                     
                     load_vector_store(documents=splitted_documents)
@@ -46,6 +49,9 @@ with st.sidebar:
                     st.write("Vector store loaded successfully!", icon="✅")
                 
 if os.path.exists(chroma_path):
+    if "scraped_documents" in st.session_state.keys():
+        st.markdown(body=st.session_state['scraped_documents'], unsafe_allow_html=True)
+    
     # Store LLM generated responses
     if "messages" not in st.session_state.keys():
         st.session_state.messages = [{"role": "assistant", "content": "How may I help you? 👋"}]
