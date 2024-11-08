@@ -2,8 +2,8 @@ import os
 import streamlit as st
 from secret import load_secret
 from web_page import load_page, split_page
-from vector_store import load_vector_store, get_retrieve_vector_store, delete_vector_store, chroma_path
-from chat import chat_with_webpage
+from vector_store import load_vector_store, delete_vector_store, chroma_path
+from chat import chat_with_webpage, stream_response
 
 st.set_page_config(page_title="SmartPage", page_icon="🤖")
 
@@ -85,7 +85,8 @@ if os.path.exists(chroma_path):
                     with st.chat_message("assistant"):
                         with st.spinner("Thinking..."):
                             response = generate_response(prompt) 
-                            st.write_stream(stream=response)
+                            st.write_stream(stream=stream_response(response=response))
+                            
                     message = {"role": "assistant", "content": response}
                     st.session_state.messages.append(message)
                 except Exception as e:
