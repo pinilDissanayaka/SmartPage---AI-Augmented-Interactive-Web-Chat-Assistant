@@ -40,6 +40,7 @@ streamlit run home.py
 ## 📸 Preview
 ![smartPage (2)](https://github.com/user-attachments/assets/085043cd-5beb-4807-9607-7bd2f8e9b12c)
 ![Screenshot 2024-11-08 153913](https://github.com/user-attachments/assets/aa5f4bfd-9dc9-4886-9f77-6910f05be40a)
+![Screenshot 2024-11-01 234439](https://github.com/user-attachments/assets/5e98ff89-725a-4be4-89e4-31aac58f6dd4)
 ![Screenshot 2024-11-03 091607](https://github.com/user-attachments/assets/29c6c365-451c-4988-b39e-e0e2bad159b3)
 ![smartPage](https://github.com/user-attachments/assets/74b3bf2f-81f7-4931-a545-e54a563c428c)
 ![Screenshot 2024-11-08 153944](https://github.com/user-attachments/assets/41b983e6-a271-4bd4-bd90-1250c9664df4)
