@@ -13,7 +13,7 @@ def chat_with_webpage(question:str, history=None):
         StrOutputParser()
     )
     
-    response=chat_chain.invoke({"QUESTION" : question})
+    response=chat_chain.invoke(question)
     
     return response
 
