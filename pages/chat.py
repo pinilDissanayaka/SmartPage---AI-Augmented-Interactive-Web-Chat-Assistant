@@ -46,7 +46,7 @@ with st.sidebar:
                     
                     load_vector_store(documents=splitted_documents)
                     
-                    st.write("Vector store loaded successfully!", icon="✅")
+                    st.success("Vector store loaded successfully!", icon="✅")
                 
 if os.path.exists(chroma_path):
     if "scraped_documents" in st.session_state.keys():

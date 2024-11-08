@@ -24,7 +24,7 @@ def load_vector_store(documents):
             
         vector_store=Chroma.from_documents(
             documents=documents,
-            embeddings=embeddings,
+            embedding=embeddings,
             persist_directory=chroma_path
         )
         
