@@ -29,21 +29,21 @@ with st.sidebar:
         st.success("Groq and Pinecone API keys loaded successfully!", icon="✅")
         
         
-    if os.path.exists(chroma_path):
-        if st.button("Delete Vector Store"):
-            delete_vector_store()
-        
-    web_url=st.text_input(label="Enter your webpage URL :", value=None, type="default")
-    if web_url:
-        if st.button("Load Webpage"):
-            with st.spinner("Loading..."):
-                documents=load_page(urls=web_url)
-                
-                splitted_documents=split_page(documents=documents)
-                
-                load_vector_store(documents=splitted_documents)
-                
-                st.write("Vector store loaded successfully!", icon="✅")
+        if os.path.exists(chroma_path):
+            if st.button("Delete Vector Store"):
+                delete_vector_store()
+            
+        web_url=st.text_input(label="Enter your webpage URL :", value=None, type="default")
+        if web_url:
+            if st.button("Load Webpage"):
+                with st.spinner("Loading..."):
+                    documents=load_page(urls=web_url)
+                    
+                    splitted_documents=split_page(documents=documents)
+                    
+                    load_vector_store(documents=splitted_documents)
+                    
+                    st.write("Vector store loaded successfully!", icon="✅")
                 
 if os.path.exists(chroma_path):
     # Store LLM generated responses
