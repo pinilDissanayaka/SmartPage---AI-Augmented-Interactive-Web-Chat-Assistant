@@ -41,6 +41,4 @@ with st.sidebar:
                 
                 splitted_documents=split_page(documents)
                 
-                st.write(split_page)
-
-        
+                st.write(splitted_documents)
