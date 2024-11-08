@@ -50,38 +50,40 @@ with st.sidebar:
                 
 if os.path.exists(chroma_path):
     if "scraped_documents" in st.session_state.keys():
-        st.markdown(body=st.session_state['scraped_documents'], unsafe_allow_html=True)
-    
-    # Store LLM generated responses
-    if "messages" not in st.session_state.keys():
-        st.session_state.messages = [{"role": "assistant", "content": "How may I help you? 👋"}]
+        with st.expander(label="Scraped Webpage", expanded=False):
+            st.markdown(body=st.session_state['scraped_documents'], unsafe_allow_html=True)
+            
+        with st.expander(label="Chat-bot", expanded=True):
+            # Store LLM generated responses
+            if "messages" not in st.session_state.keys():
+                st.session_state.messages = [{"role": "assistant", "content": "How may I help you? 👋"}]
 
-    # Display chat messages
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.write(message["content"])
+            # Display chat messages
+            for message in st.session_state.messages:
+                with st.chat_message(message["role"]):
+                    st.write(message["content"])
 
-    # Function for generating LLM response
-    def generate_response(prompt_input):
-        return chat_with_webpage(question=prompt_input)
+            # Function for generating LLM response
+            def generate_response(prompt_input):
+                return chat_with_webpage(question=prompt_input)
 
 
-    # User-provided prompt
-    if prompt := st.chat_input():
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
-            st.write(prompt)
+            # User-provided prompt
+            if prompt := st.chat_input():
+                st.session_state.messages.append({"role": "user", "content": prompt})
+                with st.chat_message("user"):
+                    st.write(prompt)
 
-    # Generate a new response if last message is not from assistant
-    if st.session_state.messages[-1]["role"] != "assistant":
-        try:
-            with st.chat_message("assistant"):
-                with st.spinner("Thinking..."):
-                    response = generate_response(prompt) 
-                    st.write(response)
-            message = {"role": "assistant", "content": response}
-            st.session_state.messages.append(message)
-        except Exception as e:
-            st.warning(f"An unexpected error occurred: {str(e.args)}. Please try again.", icon="⚠️")
+            # Generate a new response if last message is not from assistant
+            if st.session_state.messages[-1]["role"] != "assistant":
+                try:
+                    with st.chat_message("assistant"):
+                        with st.spinner("Thinking..."):
+                            response = generate_response(prompt) 
+                            st.write(response)
+                    message = {"role": "assistant", "content": response}
+                    st.session_state.messages.append(message)
+                except Exception as e:
+                    st.warning(f"An unexpected error occurred: {str(e.args)}. Please try again.", icon="⚠️")
 else:
     st.warning("Please load your webpage first.", icon="🚨")
